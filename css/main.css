@@ -2643,7 +2643,7 @@ th {
     .site-header .site-nav ul {
       list-style-type: none;
       font-weight: 600;
-      font-size: 1.2em; }
+      font-size: 1.1em; }
       .site-header .site-nav ul li {
         margin-left: 15px;
         display: inline-block;
@@ -2658,7 +2658,7 @@ th {
             transition: all .3s ease-in; }
       .site-header .site-nav ul li.current_page_item a {
         color: #f90033; }
-      .site-header .site-nav ul ul.children {
+      .site-header .site-nav ul ul.sub-menu {
         display: none;
         position: absolute;
         top: 20px;
@@ -2667,13 +2667,13 @@ th {
         font-weight: 400;
         width: 200px;
         padding: 0; }
-        .site-header .site-nav ul ul.children li {
+        .site-header .site-nav ul ul.sub-menu li {
           display: block;
           font-size: .7em;
           padding-left: 10px;
           margin: 0;
           background: #eeeeee; }
-          .site-header .site-nav ul ul.children li a {
+          .site-header .site-nav ul ul.sub-menu li a {
             display: block;
             width: 100%;
             padding: 10px 0; }

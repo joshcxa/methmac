@@ -1,7 +1,16 @@
 <?php
 
-function trim_excerpt($text) {
-    return rtrim($text,'&hellip;');
+// Regisiter main menu position
+register_nav_menus( array(
+    'primary' => __( 'Primary Menu', 'methmac'),
+) );
+
+
+
+
+// Replace [...] with ... for newsroom posts
+function plain_ellipsis($more) {
+    return '…';
 }
 
-add_filter('get_the_excerpt', 'trim_excerpt');
+add_filter('excerpt_more', 'plain_ellipsis');

@@ -46,7 +46,6 @@
 				<li><a href="#">Testimonials</a></li>
 				<li><a href="#">Newsroom</a></li>
 				<li><a href="#">Contact</a></li> -->
-                <?php wp_list_pages( '&title_li='); ?>
 
                 <?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
 			</ul>
