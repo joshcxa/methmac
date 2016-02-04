@@ -1,0 +1,102 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600,700);
+@import "bootstrap";
+@import "fontawesome/font-awesome";
+@import url("linecons.css");
+@import "header";
+@import "sidebar";
+@import "footer";
+@import "home";
+@import "newsroom";
+@import "mailing-list";
+
+body {
+    background-color: $body-bg;
+    font-family: $font-family-sans-serif;
+    font-size: .8em;
+    line-height: 1.5em;
+}
+
+a {
+    text-decoration: none;
+    //color: $brand-primary;
+    -moz-transition: all .3s ease-in;
+    -o-transition: all .3s ease-in;
+    -webkit-transition: all .3s ease-in;
+    transition: all .3s ease-in;
+}
+
+.primary-link {
+    display: block;
+    margin: 15px 0;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: $brand-primary;
+
+    &:hover {
+        color: $gray-base;
+    }
+}
+
+.content {
+    margin: 0 auto;
+    max-width: 1170px;
+    box-sizing: border-box;
+    @include clearfix;
+}
+
+.main {
+    background: $content-bg;
+    padding: 30px $content-padding-lr 60px;
+}
+
+@media screen and (max-width: $screen-md) {
+    .main {
+        padding: 30px $content-padding-lr-mobile;
+    }
+}
+
+.bb {
+    border-bottom: 1px solid $gray-lighter;
+}
+
+.divider {
+    @include make-row();
+    border-bottom: 1px solid $gray-lighter;
+    margin: 60px 0;
+}
+
+.heading {
+    @include make-md-column(12);
+    margin-bottom: 20px;
+
+    h1 {
+        text-transform: uppercase;
+        font-weight: 300;
+        line-height: 1.5em;
+
+        span {
+            margin-right: 15px;
+            color: $gray-light;
+        }
+    }
+
+    .decoration {
+        width: 80px;
+        height: 1px;
+        background: $gray-lighter;
+        margin-top: 35px;
+    }
+}
+
+
+.slider {
+    @extend .content;
+    height: 500px;
+    background-color: $gray-lighter;
+    background-image: url(../images/slider-sample.png);
+}
+
+.breadcrumbs {
+    background: $gray-lighter;
+    padding: 20px 0;
+}

@@ -1,0 +1,187 @@
+
+.top-content {
+    @include make-row();
+    @extend .content;
+    padding: 40px $content-padding-lr 10px;
+    color: #9d9d9d;
+
+    a {
+        color: #9d9d9d;
+    }
+
+    .contact {
+        @include make-md-column(6);
+
+        a {
+            display: inline-block;
+            padding: 8px 15px;
+            background-color: #e1e1e1;
+            margin-right: 40px;
+
+            &:hover {
+                background: $gray-lighter;
+            }
+        }
+    }
+
+    .social {
+        @include make-md-column(6);
+        text-align: right;
+
+        ul {
+            list-style-type: none;
+
+            li {
+                display: inline-block;
+                margin-left: 14px;
+                font-size: 1.2em;
+
+                a {
+                    &:hover {
+                        color: $gray-darker;
+                    }
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: $screen-md) {
+        .social {
+            display: none;
+        }
+    }
+}
+
+@media screen and (max-width: $screen-md) {
+    .top-content {
+        padding: 10px $content-padding-lr-mobile;
+    }
+}
+
+.site-header {
+    @include make-row();
+    @extend .content;
+    background: $content-bg;
+    padding: 25px $content-padding-lr;
+
+    position: relative;
+
+    .menu-toggle {
+        display: none;
+        position: absolute;
+        right: 40px;
+    }
+
+    @media screen and (max-width: $screen-md) {
+        .menu-toggle {
+            display: block;
+            position: absolute;
+            right: 40px;
+            top: 36px;
+            cursor: pointer;
+        }
+    }
+
+    .site-logo {
+        @include make-sm-column(2);
+    }
+
+    .site-nav {
+        @include make-sm-column(10);
+        text-align: right;
+
+        ul {
+            list-style-type: none;
+            font-weight: 600;
+            font-size: 1.2em;
+            li {
+                margin-left: 15px;
+                display: inline-block;
+                position: relative;
+
+                a {
+                    color: $gray-darker;
+
+                    &:hover {
+                        color: $brand-primary;
+                        -moz-transition: all .3s ease-in;
+                        -o-transition: all .3s ease-in;
+                        -webkit-transition: all .3s ease-in;
+                        transition: all .3s ease-in;
+                    }
+                }
+            }
+
+            li.current_page_item a {
+                color: $brand-primary;
+            }
+
+            ul.children {
+                display: none;
+                position: absolute;
+                top: 20px;
+                left: 0;
+                text-align: left;
+                font-weight: 400;
+                width: 200px;
+                padding: 0;
+
+                li {
+                    display: block;
+                    font-size: .7em;
+                    padding-left: 10px;
+                    margin: 0;
+                    background: $gray-lighter;
+
+                    a {
+                        display: block;
+                        width: 100%;
+                        padding: 10px 0;
+                    }
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: $screen-md) {
+        .site-nav {
+            display: none;
+            text-align: left;
+            box-sizing: content-box;
+            width: 100%;
+            padding: 0;
+            ul {
+                font-size: 1.8em;
+                padding: 0;
+
+                li {
+                    display: block;
+                    border-bottom: 1px solid $gray-lighter;
+
+                    a {
+                        display: block;
+                        padding: 25px 0;
+
+                        &:hover {
+                            background-color: $brand-primary;
+                            color: #fff;
+                            padding-left: 20px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: $screen-sm) {
+        .site-nav {
+            float: none;
+        }
+    }
+}
+
+@media screen and (max-width: $screen-md) {
+    .site-header {
+        padding: 25px $content-padding-lr-mobile;
+    }
+}

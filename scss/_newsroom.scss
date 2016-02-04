@@ -1,0 +1,23 @@
+
+.newsroom-contents {
+    @include make-md-column(9);
+    padding-right: 15%;
+
+    .newsroom {
+
+        small {
+            display: block;
+            margin-bottom: 10px;
+            color: $gray-light;
+            font-size: 1em;
+
+            a {
+                color: $gray-light;
+
+                &:hover {
+                    color: $brand-primary;
+                }
+            }
+        }
+    }
+}

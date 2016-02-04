@@ -1,0 +1,64 @@
+
+.mailing-list {
+    @extend .content;
+    padding: 30px $content-padding-lr;
+    background: #f4f3f3;
+    @include make-row();
+
+    .ml-label,
+    .ml-name,
+    .ml-email,
+    .ml-sign-up {
+        @include make-md-column(3);
+        box-sizing: border-box;
+        padding: 10px;
+        background: #f4f3f3;
+    }
+
+    .ml-label {
+        color: $gray-light;
+        font-size: 1.3em;
+        text-transform: uppercase;
+        font-weight: 600;
+
+        span {
+            color: $gray-base;
+            display: block;
+        }
+    }
+
+    .ml-name input,
+    .ml-email input {
+        width: 100%;
+        padding: 13px 20px;
+        border: none;
+        box-sizing: border-box;
+        font-size: 1.5em;
+    }
+
+    .ml-sign-up button {
+        width: 100%;
+        background: $brand-primary;
+        padding: 14px 20px;
+        border: none;
+        text-transform: uppercase;
+        color: #fff;
+        font-weight: 600;
+        font-size: 1.5em;
+        transition: all 0.3s ease;
+
+        &:hover {
+            background: darken($brand-primary, 10%);
+        }
+
+        &:active {
+            background: darken($brand-primary, 30%);
+        }
+    }
+}
+
+@media screen and (max-width: $screen-md) {
+    .mailing-list {
+        padding: 30px $content-padding-lr-mobile;
+    }
+}

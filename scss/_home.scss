@@ -1,0 +1,122 @@
+.intro {
+	@include make-sm-column(12);
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 1.5em;
+    line-height: 1.5em;
+}
+
+.items {
+    @include make-row();
+    margin: 0;
+
+
+
+    .services,
+    .workshops,
+    .testimonials {
+        @include make-md-column(4);
+
+        dt {
+            float: left;
+            width: 40px;
+            height: 40px;
+            display: block;
+            font-size: 3em;
+            color: $gray-light;
+            overflow: hidden;
+            clear: left;
+            text-align: right;
+        }
+
+        dd {
+            margin-left: 60px;
+        }
+
+        a {
+            @extend .primary-link;
+        }
+
+        @media screen and (max-width: $screen-md) {
+            margin-bottom: 50px;
+        }
+
+    }
+
+}
+
+.events,
+.newsroom {
+    @include make-row();
+    margin: 0;
+
+    article {
+        @include make-md-column(4);
+
+        a {
+            @extend .primary-link;
+        }
+
+        small {
+            display: block;
+            margin-bottom: 10px;
+            color: $gray-light;
+        }
+
+        .category {
+            font-size: .8em;
+            border-top: 1px solid $gray-lighter;
+            padding: 12px 0 5px;
+            margin-top: 12px;
+
+            a {
+                display: inline-block;
+                margin: 0;
+				color: $gray-light;
+				font-weight: 400;
+            }
+        }
+
+        @media screen and (max-width: $screen-md) {
+            margin-bottom: 50px;
+        }
+    }
+}
+
+
+
+.content-break {
+    @extend .content;
+    @include make-row();
+    background-color: $brand-primary;
+    color: #fff;
+
+    .testimonial {
+        @include make-md-column(6);
+        padding: 60px;
+        box-sizing: border-box;
+        font-size: 2em;
+        line-height: 1.5em;
+        font-weight: 600;
+
+        .client {
+            display: block;
+            text-align: right;
+            font-size: .7em;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-top: 10px;
+        }
+    }
+
+    .testimonial-img {
+        @include make-md-column(6);
+        padding: 0;
+        overflow: hidden;
+        line-height: 0;
+
+        img {
+            width: 100%;
+        }
+    }
+}
