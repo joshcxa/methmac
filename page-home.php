@@ -6,7 +6,11 @@
 
 <div class="content main bb">
     <div class="intro">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi egestas non nunc in porttitor. Integer vel pretium ligula. Duis consectetur nec metus eget dignissim. In malesuada vehicula sapien nec condimentum. Nunc odio leo, iaculis non lobortis at, dapibus sed augue.
+        <?php while ( have_posts() ) : the_post(); ?>
+
+           <?php the_field('intro'); ?>
+
+       <?php endwhile; ?>
     </div>
 
     <div class="divider">
@@ -22,8 +26,14 @@
                 </dt>
                 <dd>
                     <h3>Services</h3>
-                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem.
-                    <a href="#">Learn More</a>
+
+                    <?php while ( have_posts() ) : the_post(); ?>
+
+                       <?php the_field('services'); ?>
+
+                   <?php endwhile; ?>
+
+                    <a href="<?php echo get_page_link(22); ?>">Learn More</a>
                 </dd>
             </dl>
         </div>
@@ -35,8 +45,14 @@
                 </dt>
                 <dd>
                     <h3>Workshops &amp; Seminars</h3>
-                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem.
-                    <a href="#">Learn More</a>
+
+                    <?php while ( have_posts() ) : the_post(); ?>
+
+                       <?php the_field('workshops-seminars'); ?>
+
+                   <?php endwhile; ?>
+
+                    <a href="<?php echo get_page_link(9); ?>">Learn More</a>
                 </dd>
             </dl>
         </div>
@@ -48,8 +64,14 @@
                 </dt>
                 <dd>
                     <h3>Testimonials</h3>
-                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem.
-                    <a href="#">Learn More</a>
+
+                    <?php while ( have_posts() ) : the_post(); ?>
+
+                       <?php the_field('testimonials'); ?>
+
+                   <?php endwhile; ?>
+
+                    <a href="<?php echo get_page_link(13); ?>">Learn More</a>
                 </dd>
             </dl>
         </div>
@@ -93,13 +115,27 @@
 <!-- /content main bb -->
 
 <div class="content-break">
-	<div class="testimonial-img">
-        <img src="http://placehold.it/585x300" />
-	</div>
-    <div class="testimonial">
-        Highly recommend to anyone looking to pull their finger out and do all the things they say they want to.
-        <span class="client">Ashlee Urbanic</span>
-    </div>
+
+    <?php while ( have_posts() ) : the_post(); ?>
+
+        <div class="testimonial-img">
+            <?php
+                $image_id = get_field('testimonial_image');
+                $image_size = 'home-testimonial';
+                $image_array = wp_get_attachment_image_src($image_id, $image_size);
+                $image_url = $image_array[0];
+            ?>
+
+            <img src="<?php echo $image_url; ?>" alt="">
+
+    	</div>
+        <div class="testimonial">
+            <?php the_field('highlight-testimonial'); ?>
+            <span class="client"><?php the_field('testimonial_attribute'); ?></span>
+        </div>
+
+    <?php endwhile; // end of the loop. ?>
+
 </div>
 
 <div class="content main">
@@ -110,35 +146,31 @@
 
     <div class="newsroom">
 
-        <article>
-            <h3>Title</h3>
-            <small><span class="li li_user"></span> Posted by Leah <span class="li li_calendar"></span> On February 16, 2016</small>
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem.
-            <div class="category">
-                <span class="li li_tag"></span> <a href="#">category</a>
-            </div>
-            <a href="#">Read More</a>
-        </article>
+        <?php
+        $recentPosts = new WP_Query();
+        $recentPosts->query('showposts=3');
+        ?>
+
+        <?php while ($recentPosts->have_posts()) : $recentPosts->the_post(); ?>
 
         <article>
-            <h3>Title</h3>
-            <small><span class="li li_user"></span> Posted by Leah <span class="li li_calendar"></span> On February 16, 2016</small>
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem.
+            <h3><?php the_title(); ?></h3>
+            <ul class="post-meta">
+                <li>
+                    <span class="li li_user"></span> Posted by <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>"><?php the_author(); ?></a>
+                </li>
+                <li>
+                    <span class="li li_calendar"></span> On <?php the_date(); ?>
+                </li>
+            </ul>
+            <?php the_excerpt(); ?>
             <div class="category">
-                <span class="li li_tag"></span> <a href="#">category</a>
+                <span class="li li_tag"></span> <?php the_category(); ?>
             </div>
-            <a href="#">Read More</a>
+            <a href="<?php the_permalink(); ?>">Read More</a>
         </article>
 
-        <article>
-            <h3>Title</h3>
-            <small><span class="li li_user"></span> Posted by Leah <span class="li li_calendar"></span> On February 16, 2016</small>
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem.
-            <div class="category">
-                <span class="li li_tag"></span> <a href="#">category</a>
-            </div>
-            <a href="#">Read More</a>
-        </article>
+        <?php endwhile; ?>
 
     </div>
 </div>

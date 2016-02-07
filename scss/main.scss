@@ -8,12 +8,17 @@
 @import "home";
 @import "newsroom";
 @import "mailing-list";
+@import "wp-editor";
 
 body {
     background-color: $body-bg;
     font-family: $font-family-sans-serif;
     font-size: .8em;
     line-height: 1.5em;
+}
+
+p {
+    line-height: 1.8em;
 }
 
 a {
@@ -85,6 +90,7 @@ a {
         height: 1px;
         background: $gray-lighter;
         margin-top: 35px;
+        margin-bottom: 20px;
     }
 }
 
@@ -99,4 +105,23 @@ a {
 .breadcrumbs {
     background: $gray-lighter;
     padding: 20px 0;
+}
+
+ul.post-meta,
+ul.post-categories {
+    padding: 0;
+    margin: 0;
+
+    li {
+        display: inline-block;
+        color: $gray-light;
+        margin-right: 8px;
+
+        a {
+            display: inline-block;
+            color: $gray-light;
+            text-transform: capitalize;
+            font-weight: 400;
+        }
+    }
 }

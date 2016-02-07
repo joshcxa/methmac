@@ -1,11 +1,11 @@
 
 .newsroom-contents {
     @include make-md-column(9);
-    padding-right: 15%;
+    padding-right: 10%;
 
     .newsroom {
 
-        small {
+        ul {
             display: block;
             margin-bottom: 10px;
             color: $gray-light;
@@ -20,4 +20,8 @@
             }
         }
     }
+}
+
+ul.post-categories {
+    display: inline;
 }

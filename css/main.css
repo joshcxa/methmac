@@ -2829,11 +2829,12 @@ footer {
       .newsroom article {
         float: left;
         width: 33.33333%; } }
-    .events article small,
-    .newsroom article small {
-      display: block;
-      margin-bottom: 10px;
-      color: #c1c1c1; }
+    .events article p,
+    .newsroom article p {
+      margin: 0; }
+    .events article h3,
+    .newsroom article h3 {
+      margin: 0; }
     .events article .category,
     .newsroom article .category {
       font-size: .8em;
@@ -2905,20 +2906,23 @@ footer {
   padding-left: 15px;
   padding-right: 15px;
   box-sizing: border-box;
-  padding-right: 15%; }
+  padding-right: 10%; }
   @media (min-width: 992px) {
     .newsroom-contents {
       float: left;
       width: 75%; } }
-  .newsroom-contents .newsroom small {
+  .newsroom-contents .newsroom ul {
     display: block;
     margin-bottom: 10px;
     color: #c1c1c1;
     font-size: 1em; }
-    .newsroom-contents .newsroom small a {
+    .newsroom-contents .newsroom ul a {
       color: #c1c1c1; }
-      .newsroom-contents .newsroom small a:hover {
+      .newsroom-contents .newsroom ul a:hover {
         color: #f90033; }
+
+ul.post-categories {
+  display: inline; }
 
 .mailing-list {
   padding: 30px 50px;
@@ -2982,11 +2986,19 @@ footer {
 @media screen and (max-width: 992px) {
   .mailing-list {
     padding: 30px 20px; } }
+.alignright {
+  float: right;
+  margin: 20px 0 20px 20px;
+  border: 3px solid #eeeeee; }
+
 body {
   background-color: #ececec;
   font-family: "Raleway", sans-serif;
   font-size: .8em;
   line-height: 1.5em; }
+
+p {
+  line-height: 1.8em; }
 
 a {
   text-decoration: none;
@@ -3063,7 +3075,8 @@ a {
     width: 80px;
     height: 1px;
     background: #eeeeee;
-    margin-top: 35px; }
+    margin-top: 35px;
+    margin-bottom: 20px; }
 
 .slider {
   height: 500px;
@@ -3073,5 +3086,21 @@ a {
 .breadcrumbs {
   background: #eeeeee;
   padding: 20px 0; }
+
+ul.post-meta,
+ul.post-categories {
+  padding: 0;
+  margin: 0; }
+  ul.post-meta li,
+  ul.post-categories li {
+    display: inline-block;
+    color: #c1c1c1;
+    margin-right: 8px; }
+    ul.post-meta li a,
+    ul.post-categories li a {
+      display: inline-block;
+      color: #c1c1c1;
+      text-transform: capitalize;
+      font-weight: 400; }
 
 /*# sourceMappingURL=main.css.map */

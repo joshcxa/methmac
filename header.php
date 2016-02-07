@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title><?php echo get_bloginfo( 'name' ); ?></title>
+    <title><?php echo get_bloginfo( 'name' ); echo the_title(); ?></title>
 
     <link href="<?php bloginfo( 'stylesheet_url' ); ?>" rel="stylesheet" media="all" type="text/css" />
     <!--[if lt IE 9]>
@@ -16,13 +16,13 @@
 
 	<div class="top-content">
 		<div class="contact">
-			<a href="#">Email Leah</a> Call Leah on 0412 345 678
+			<a href="<?php echo get_page_link(18); ?>">Email Leah</a> Call Leah on <?php echo get_option('phone'); ?>
 		</div>
 		<div class="social">
             <ul>
-                <li><a href="#"><i class="fa fa-facebook-f"></i></a></li>
-                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                <li><a href="<?php echo get_option('facebook'); ?>"><i class="fa fa-facebook-f"></i></a></li>
+                <li><a href="<?php echo get_option('twitter'); ?>"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="<?php echo get_option('linkedin'); ?>"><i class="fa fa-linkedin"></i></a></li>
             </ul>
 		</div>
 	</div>

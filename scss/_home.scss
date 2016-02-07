@@ -57,11 +57,13 @@
             @extend .primary-link;
         }
 
-        small {
-            display: block;
-            margin-bottom: 10px;
-            color: $gray-light;
-        }
+		p {
+			margin: 0;
+		}
+
+		h3 {
+			margin: 0;
+		}
 
         .category {
             font-size: .8em;
