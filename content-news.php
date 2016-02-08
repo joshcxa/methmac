@@ -14,7 +14,7 @@
 			<span class="li li_calendar"></span> On <?php the_date(); ?>
 		</li>
 		<li>
-			<span class="li li_tag"></span> <?php the_category( ', '); ?>
+			<span class="li li_tag"></span> <?php the_category( ', ' ); ?>
 		</li>
 
 	</ul>
