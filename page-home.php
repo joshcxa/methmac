@@ -89,26 +89,30 @@
 
     <div class="events">
 
-        <article>
-            <h3>Event Title</h3>
-            <small><span class="li li_location"></span> Held at Town Hall <span class="li li_calendar"></span> On February 16, 2016</small>
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem.
-            <a href="#">View Event</a>
-        </article>
+        <?php
+    		$args =  array(
+    			'post_type' => 'events',
+    			'orderby' => 'menu_order',
+    			'order' => 'ASC',
+                'posts_per_page'   => 3
+    		);
 
-        <article>
-            <h3>Event Title</h3>
-            <small><span class="li li_location"></span> Held at Town Hall <span class="li li_calendar"></span> On February 16, 2016</small>
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem.
-            <a href="#">View Event</a>
-        </article>
+            $custom_query = new WP_Query( $args );
+            if ($custom_query->have_posts()) : while ($custom_query->have_posts()) : $custom_query->the_post(); ?>
 
-        <article>
-            <h3>Event Title</h3>
-            <small><span class="li li_location"></span> Held at Town Hall <span class="li li_calendar"></span> On February 16, 2016</small>
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem.
-            <a href="#">View Event</a>
-        </article>
+    		<article>
+                <h3><?php the_title(); ?></h3>
+                <small><span class="li li_location"></span> Held at <?php the_field('location'); ?> <span class="li li_calendar"></span> On <?php the_field('date'); ?></small>
+
+    			<?php the_excerpt(); ?>
+                <a href="<?php the_permalink(); ?>">View Event</a>
+    		</article>
+
+        <?php endwhile; else: ?>
+
+            <h3>No events</h3>
+
+        <?php endif; ?>
 
     </div>
 </div>
@@ -165,7 +169,7 @@
             </ul>
             <?php the_excerpt(); ?>
             <div class="category">
-                <span class="li li_tag"></span> <?php the_category(); ?>
+                <span class="li li_tag"></span> <?php the_category( ', ' ); ?>
             </div>
             <a href="<?php the_permalink(); ?>">Read More</a>
         </article>

@@ -13,9 +13,11 @@
         while ($custom_query->have_posts()) : $custom_query->the_post(); ?>
 
 		<div class="">
-			<?php the_content(); ?>
+            <h2><?php the_title(); ?></h2>
 
-            <h4><?php the_title(); ?></h4>
+            <p><?php the_field('location'); ?></p>
+
+			<?php the_content(); ?>
 
             <?php if ( has_post_thumbnail() ) {
         	  the_post_thumbnail( );
