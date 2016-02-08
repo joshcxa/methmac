@@ -8,7 +8,6 @@
 *********************************************************************************** */
 // Add scripts and stylesheets
 function methmac_scripts() {
-    echo "Does this output to the actual page?";
 	wp_enqueue_style( 'methmac-style', get_stylesheet_uri() );
 
 	wp_enqueue_script( 'bootstrap', get_stylesheet_directory_uri() . '/js/bootstrap.min.js', array('jquery'), '3.3.6', true );
@@ -149,6 +148,7 @@ function create_events_post() {
 			),
 			'public' => true,
 			'has_archive' => true,
+            'rewrite' => array('slug' => 'events'),
 			'supports' => array(
 					'title',
 					'editor',
@@ -188,3 +188,6 @@ function methmac_excerpt_length( $length ) {
 }
 
 add_filter( 'excerpt_length', 'methmac_excerpt_length', 999 );
+
+
+add_theme_support( 'title-tag' );
